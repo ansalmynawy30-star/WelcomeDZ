@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages </title>
+    <link rel="stylesheet" href="C:\xamp\htdocs\my-website\css\suggestion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="messages-page">
+    <div class="messages-layout">
+        <!-- Contacts sidebar -->
+        <aside class="contacts-sidebar">
+            <div class="contacts-header">
+                <h2 class="contacts-title"> Communicate with students</h2>
+                <div class="contacts-search">
+                    <input type="text" placeholder="Search contacts..." class="contacts-search-input">
+                    <svg class="contacts-search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="contacts-list">
+                <!-- Contact 1 (Active Example) -->
+                <button class="contact-item active">
+                    <div class="contact-avatar-container">
+                        <img src="../imge/profile1.jpg" alt="Sarah Wilson" class="contact-avatar">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-name-time">
+                            <span class="contact-name">Mohammad Ali</span>
+                            <span class="contact-time">10:30 AM</span>
+                        </div>
+                        <p class="contact-last-message">Yes, I can start on that right away.</p>
+                    </div>
+                    <span class="unread-indicator"></span>
+                </button>
+                
+                <!-- Contact 2 -->
+                <button class="contact-item">
+                    <div class="contact-avatar-container">
+                        <img src=" C:\xamp\htdocs\my-website\imge\profile1.jpg " alt="Alex Johnson" class="contact-avatar">
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-name-time">
+                            <span class="contact-name">Ahmed Hassan</span>
+                            <span class="contact-time">Yesterday</span>
+                        </div>
+                        <p class="contact-last-message you">You: Thank you for the great design!</p>
+                    </div>
+                </button>
+                
+                <!-- Contact 3 -->
+                <button class="contact-item">
+                    <div class="contact-avatar-container">
+                        <img src="../imge/profile1.jpg" alt="David Lee" class="contact-avatar">
+                        <span class="online-indicator"></span>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-name-time">
+                            <span class="contact-name">Fatima Ahmed</span>
+                            <span class="contact-time">12/05</span>
+                        </div>
+                        <p class="contact-last-message">Do you have any updates on the project?</p>
+                    </div>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Chat area -->
+        <main class="chat-area">
+            <!-- Chat header -->
+            <div class="chat-header">
+                <div class="chat-partner">
+                    <img src="../imge/profile1.jpg" alt="Mohammad Ali" class="chat-partner-avatar">
+                    <div class="chat-partner-info">
+                        <h3 class="chat-partner-name">Mohammad Ali</h3>
+                        <p class="chat-partner-title">student</p>
+                    </div>
+                </div>
+                <a href="designer.html?id=1" class="chat-view-profile">View Profile</a>
+            </div>
+
+            <!-- Messages -->
+            <div class="messages-container">
+                <!-- Message from Them -->
+                <div class="message their-message">
+                    <div class="message-bubble">
+                        <p class="message-text">Hello! How can I help you today?</p>
+                        <p class="message-time">10:28 AM</p>
+                    </div>
+                </div>
+                
+                <!-- Message from You -->
+                <div class="message your-message">
+                    <div class="message-bubble">
+                        <p class="message-text">I'm looking for a new logo design for my company.</p>
+                        <p class="message-time">10:29 AM</p>
+                    </div>
+                </div>
+                
+                <!-- Message from Them -->
+                <div class="message their-message">
+                    <div class="message-bubble">
+                        <p class="message-text">Sure, I can help with that. Do you have any initial ideas?</p>
+                        <p class="message-time">10:29 AM</p>
+                    </div>
+                </div>
+                
+                <!-- Message from Them (Active Contact in example) -->
+                <div class="message their-message">
+                    <div class="message-bubble">
+                        <p class="message-text">Yes, I can start on that right away.</p>
+                        <p class="message-time">10:30 AM</p>
+                    </div>
+                </div>
+                
+                <!-- Date Separator -->
+                <div class="date-separator">
+                    <span>Today</span>
+                </div>
+            </div>
+
+            <!-- Message input -->
+            <div class="message-input-container">
+                <form class="message-form">
+                    <input type="text" class="message-input" placeholder="Type a message to Sarah Wilson...">
+                    <button type="submit" class="send-button">
+                        <svg class="send-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <!-- Mobile view (only one section visible at a time) -->
+        <div class="mobile-message-header">
+            <button class="back-to-contacts">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Contacts
+            </button>
+        </div>
+    </div>
+
+    <script src="../js/jsscript.js"></script>
+</body>
+</html>

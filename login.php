@@ -1,0 +1,133 @@
+<?php
+// تشغيل الأخطاء
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once 'db.php';
+
+$message = '';
+$type = 'error';
+$email = ''; // عشان نعرضه في الفورم بعدين
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email    = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    if (empty($email) || empty($password)) {
+        $message = 'Fill in your email and password';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = 'Invalid email format';
+    } else {
+        try {
+            $hashed = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+            $stmt->execute([$email, $hashed]);
+
+            $message = "Registration successful!";
+            $type = 'success';
+            $email = ''; // تفريغ بعد النجاح
+        } catch (PDOException $e) {
+            if (stripos($e->getMessage(), 'Duplicate entry') !== false) {
+                $message = 'Email is already in use';
+            } else {
+                $message = 'Database error: ' . htmlspecialchars($e->getMessage());
+            }
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log_in</title>
+    <link rel="stylesheet" href="/my-website/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+
+<div class="auth-container">
+    <div class="auth-logo-container">
+        <a href="index.html" class="auth-logo">
+            <svg class="auth-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+    <h1 class="auth-title">Sign in to your account</h1>
+    <p class="auth-subtitle">
+        Or <a href="register.html" class="auth-link">create a new account</a>
+    </p>
+
+    <?php if (!empty($message)): ?>
+        <div style="padding: 15px; margin-bottom: 20px; border-radius: 8px; <?php echo $type === 'success' ? 'background:#d4edda;color:#155724;' : 'background:#f8d7da;color:#721c24;'; ?>">
+            <?= $message ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="auth-form-container">
+        <form class="auth-form" action="login.php" method="POST">
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email address</label>
+                <input id="email" name="email" type="email" class="form-input" placeholder="you@example.com" value="<?= htmlspecialchars($email ?? '') ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" name="password" type="password" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-options">
+                <div class="remember-me">
+                    <input id="remember_me" name="remember_me" type="checkbox" class="checkbox">
+                    <label for="remember_me" class="checkbox-label">Remember me</label>
+                </div>
+
+                <a href="forgot-password.html" class="forgot-password">Forgot your password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+
+            <div class="auth-separator">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login-buttons">
+
+                <!-- Google -->
+                <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=http://localhost/my-website/html/google-callback.php&response_type=code&scope=email%20profile"
+                   class="social-login-button google">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                    <span>Google</span>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/v20.0/dialog/oauth?client_id=YOUR_FACEBOOK_APP_ID&redirect_uri=http://localhost/my-website/html/facebook-callback.php&scope=email&response_type=code"
+                   class="social-login-button facebook">
+                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" fill="#1877F2"/>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html> 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+    <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="flex justify-center">
+                <a href="index.html" class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-indigo-600">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                        <path d="M3 6h18"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                </a>
+            </div>
+            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                Create your account
+            </h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Already have an account?
+                <a href="log in .html" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    Log in
+                </a>
+            </p>
+        </div>
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div id="error-message-container" class="mb-4" style="display: none;">
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4">
+                        <p class="text-sm text-red-700" id="error-message-text"></p>
+                    </div>
+                </div>
+
+                <form method="POST" action="register.php">
+                    <div class="mb-5">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input mt-1" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="mb-5">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input mt-1" required placeholder="Enter your email address">
+                    </div>
+                    
+                    <div class="mb-5">
+    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+    <input type="tel"
+           id="phone"
+           name="phone"
+           class="form-input mt-1"
+           placeholder="Enter your phone number (digits only)"
+           autocomplete="off"
+           inputmode="tel"
+           pattern="[0-9+ -]*"   
+           onkeydown="if (event.key === '(' || event.key === ')') {
+                         event.preventDefault();
+                      }"
+           oninput="this.value = this.value.replace(/[()]/g, '').replace(/[^0-9+ -]/g, '');"
+           onpaste="setTimeout(() => {
+                       this.value = this.value.replace(/[()]/g, '').replace(/[^0-9+ -]/g, '');
+                    }, 0);"
+           value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>">
+</div>
+                    
+                    <div class="mb-5">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="password" name="password" class="form-input mt-1" required placeholder="Enter your password">
+                        <p class="text-xs text-gray-500 mt-2">Password must be at least 8 characters and include uppercase, lowercase, number, and special character</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" class="form-input mt-1" required placeholder="Re-enter your password">
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="form-button w-full" style="margin-top: 1rcap;">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+
+                <p class="mt-6 text-xs text-center text-gray-500">
+                    By signing up, you agree to our
+                    <a href="terms.html" class="text-indigo-600 hover:text-indigo-500">Terms of Service</a>
+                    and
+                    <a href="privacy.html" class="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const phoneInput = document.getElementById('phone');
+    if (!phoneInput) return;
+
+    function forceClean() {
+        phoneInput.value = phoneInput.value
+            .replace(/[()]/g, '')              // يمسح القوسين أول شيء
+            .replace(/[^0-9+ -]/g, '');       // يبقي أرقام + + - مسافة فقط
+    }
+
+    // تنظيف فوري
+    forceClean();
+
+    // تنظيف بعد 100ms (Chrome أحيانًا يضيف متأخر)
+    setTimeout(forceClean, 100);
+    setTimeout(forceClean, 300);
+
+    // لو رجع للصفحة من الـ back/forward cache
+    window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            forceClean();
+        }
+    });
+});
+</script>
+</body>
+</html>

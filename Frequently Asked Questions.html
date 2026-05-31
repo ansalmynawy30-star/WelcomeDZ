@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently asked questions</title>
+    
+    <!-- <link rel="stylesheet" href="C:\Users\HP\OneDrive\Desktop\websit\css\page home.css"> -->
+    <link rel="stylesheet" href="C:\xamp\htdocs\my-website\css\Frequently Asked Questions.CSS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+  <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="C:\xamp\htdocs\my-website\html\pagehome.html" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-text">International studentDZ</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav">
+                    <!-- <a href="index.html" class="nav-link ">Home</a> -->
+                     <a href="C:\xamp\htdocs\my-website\html\pagehome.html"  class="nav-link active">Home</a>
+                    <a href="C:\xamp\htdocs\my-website\html\service.html" class="nav-link "> services  </a>
+
+                    <a href="C:\xamp\htdocs\my-website\html\University registration.html" class="nav-link">Admissions and Registration</a>
+                    
+                    <!-- <a href="about.html" class="nav-link">About</a> -->
+                </nav>
+
+                <!-- Search & Auth (Desktop) -->
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" placeholder="Search for service..." class="search-input">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="auth-buttons">
+                        <a href="C:\xamp\htdocs\my-website\html\login.html" class="btn btn-outline">Log in</a>
+                        <a href="C:\xamp\htdocs\my-website\html\register.html" class="btn btn-primary">Sign up</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+           <h2 align="center">Frequently asked questions for international students :</h2>
+
+    </header>
+
+
+
+<body >
+  
+
+
+
+<div class="container">
+
+    <div class="faq-section">
+        <h2>Registration and Admission </h2>
+        <div class="faq-item">
+            <question>1. How can I register as an international student at the university?</question>
+            <answer>You can register by following up with the Ministry of Higher Education - Cultural Exchange Department - Algeria Scholarship</answer>
+        </div>
+        <div class="faq-item">
+            <question>2. What are the admission requirements for foreign students?</question>
+            <answer>It varies depending on the specialization, but usually includes a high school diploma, a valid passport, a personal photo, and a certificate of being free from diseases.</answer>
+        </div>
+        <div class="faq-item">
+            <question>3. Is registration done electronically or in person?</question>
+            <answer>Registration is usually done in person, due to the need to submit some original or certified documents, and when paying the registration, transfer or accommodation fee, registration is done electronically.</answer>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2>Required documents </h2>
+        <div class="faq-item">
+            <question>4. What documents are required for first-time registration?</question>
+            <answerHigh> school diploma, passport, personal photos. You can refer to the<u>  <a href="C:\Users\HP\OneDrive\Desktop\websit\html\Documents required.html"> <strong> "Required Documents"</strong> </a> </u> section for details</answer>
+        </div>
+        <div class="faq-item">
+            <question>5-  Do documents need to be notarized?</question>
+            <answer>  Yes, some documents must be certified according to the document.</answer>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2 > Study and Majors </h2>
+        <div class="faq-item">
+            <question>6- Can I choose my major?</question>
+            <answer  >        Yes, you can choose your major when registering, according to the conditions available for each academic year.</answer>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2> Accommodation and University Services    </h2>
+        <div class="faq-item">
+            <question>7- Are international students entitled to university accommodation?          </question>
+            <answer > Yes, you can apply for university accommodation after being accepted into the scholarship program.</answer>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2>   Electronic Systems (Progres)  </h2>
+        <div class="faq-item">
+            <question>8- How do I register in the Progres system?      </question>
+            <answer> After registering at the university, you will be provided with a university ID number and password to access the system. You can check the <u> <a href="C:\Users\HP\OneDrive\Desktop\websit\html\Procedures for new students.html">  <strong> "University Registration" </strong> </a> </u> section for details.  </answer>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const items = document.querySelectorAll('.faq-item question');
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+</script>
+
+<!-- </body>
+</html> -->
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Logo and Description -->
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <svg class="footer-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg> 
+                        <span>International Student  </span>
+                    </a>
+                    <p class="footer-description">
+                    The leading platform for university guidance in Algeria                   
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.796-1.56 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3.85c2.012 0 2.27.007 3.071.045.79.036 1.183.17 1.46.282.363.141.633.323.912.602.278.28.459.549.601.912.112.277.246.67.281 1.46.039.802.046 1.059.046 3.07 0 2.012-.007 2.27-.046 3.072-.035.79-.169 1.183-.28 1.46-.142.362-.324.633-.602.912-.28.278-.549.459-.911.601-.278.112-.672.246-1.461.281-.802.039-1.06.046-3.071.046-2.014 0-2.271-.007-3.073-.046-.789-.035-1.183-.169-1.46-.281-.362-.142-.632-.323-.912-.601-.278-.28-.459-.55-.601-.912-.112-.277-.246-.67-.281-1.46-.039-.802-.045-1.06-.045-3.072 0-2.011.006-2.269.045-3.071.035-.79.17-1.183.281-1.461.142-.362.323-.632.601-.911.28-.279.55-.459.912-.601.277-.112.671-.246 1.46-.282.802-.038 1.059-.045 3.073-.045z"/>
+                                <path d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-7.622a4.622 4.622 0 1 0 0 9.244 4.622 4.622 0 0 0 0-9.244zm5.884-.182a1.08 1.08 0 1 1-2.16 0 1.08 1.08 0 0 1 2.16 0z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.003 5.884L10 11.882l7.997-5.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 6-8-6V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li><a href="C:\xamp\htdocs\my-website\html\pagehome.html" class="footer-link">Home</a></li>
+                        <li><a href="C:\xamp\htdocs\my-website\html\University registration.html" class="footer-link">University registration</a></li>
+                        <li><a href="بس تخلصها حط الرابط " class="footer-link">Registration for accommodation</a></li>
+                        
+                          <li><a href="C:\xamp\htdocs\my-website\html\residency and financial grant.html  " class="footer-link">residency and financial grants</a></li>
+
+                         <li><a href="C:\xamp\htdocs\my-website\html\service.html " class="footer-link"> Other services</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Help & Support -->
+                <div class="footer-links">
+                    <h3 class="footer-heading">Help & Support</h3>
+                    <ul class="footer-list">
+                        <li><a href="C:\xamp\htdocs\my-website\html\Frequently Asked Questions.html" class="footer-link">FAQ</a></li>
+
+                        <li><a href="support.html" class="footer-link">Support Center</a></li>
+                        <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="become-designer.html" class="footer-link">Become a Designer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 International studentDZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
